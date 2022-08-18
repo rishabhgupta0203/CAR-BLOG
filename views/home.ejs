@@ -1,0 +1,35 @@
+
+<%- include("partials/header"); -%>
+
+    <h1>LUXURY CARS</h1>
+    <p> <%= startingContent %> </p>
+
+   <div class="row">
+  <%  posts.forEach(function(post){ %>
+
+    <div class="col-lg-4 col-sm-6 mb-4 rrr">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src=<%=post.urls%> alt="sorry"></a>
+        <div class="card-body">
+          <h4 class="card-title" >
+            <a href=/posts/<%=post._id%>> <%=post.title%></a>
+          </h4>
+          <p class="card-text">
+            <%=post.content.substring(0, 100) + " ..."%>
+
+               <form class="delete" action="/delete" method="post">
+                 <button type="submit" class="btn btn-danger btn-sm" name="button" value="<%=post._id%>" style="float: right;">REMOVE</button>
+               </form>
+      </p>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <% }) %>
+  </div>
+
+<%- include("partials/footer"); -%>
